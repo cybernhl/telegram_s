@@ -1,5 +1,6 @@
 package org.telegram.android.core.video.buffer;
 
+import android.annotation.SuppressLint;
 import android.media.*;
 import android.util.Log;
 import org.telegram.android.core.video.VideoChunks;
@@ -43,7 +44,8 @@ public class BufferTranscode {
         return true;
     }
 
-    private static VideoChunks editVideo(VideoChunks inputData) {
+    @SuppressLint("NewApi")
+    private static VideoChunks editVideo(VideoChunks inputData) throws IOException {
         VideoChunks outputData = new VideoChunks();
         MediaCodec decoder = null;
         MediaCodec encoder = null;
@@ -91,7 +93,8 @@ public class BufferTranscode {
 
             // Create an encoder format that matches the input format.  (Might be able to just
             // re-use the format used to generate the video, since we want it to be the same.)
-            MediaFormat outputFormat = MediaFormat.createVideoFormat("video/avc",
+
+           MediaFormat outputFormat = MediaFormat.createVideoFormat("video/avc",
                     inputFormat.getInteger(MediaFormat.KEY_WIDTH),
                     inputFormat.getInteger(MediaFormat.KEY_HEIGHT));
             outputFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, colorFormat);
@@ -123,6 +126,7 @@ public class BufferTranscode {
         return outputData;
     }
 
+    @SuppressLint("NewApi")
     private static void editVideoData(VideoChunks inputData, MediaCodec decoder, VideoChunks outputData, MediaCodec encoder) {
         final int TIMEOUT_USEC = 10000;
         ByteBuffer[] decoderInputBuffers = decoder.getInputBuffers();
@@ -275,6 +279,7 @@ public class BufferTranscode {
 //        }
     }
 
+    @SuppressLint("NewApi")
     private static VideoChunks extractVideo(MediaExtractor extractor, int track) {
         VideoChunks dest = new VideoChunks();
         dest.setMediaFormat(extractor.getTrackFormat(track));
@@ -296,6 +301,7 @@ public class BufferTranscode {
      *
      * @return the track index, or -1 if no video track is found.
      */
+    @SuppressLint("NewApi")
     private static int selectTrack(MediaExtractor extractor) {
         // Select the first video track we find, ignore the rest.
         int numTracks = extractor.getTrackCount();
@@ -330,6 +336,7 @@ public class BufferTranscode {
      * match is found, this throws a test failure -- the set of formats known to the test
      * should be expanded for new platforms.
      */
+    @SuppressLint("NewApi")
     private static int selectColorFormat(MediaCodecInfo codecInfo, String mimeType) {
         MediaCodecInfo.CodecCapabilities capabilities = codecInfo.getCapabilitiesForType(mimeType);
         for (int i = 0; i < capabilities.colorFormats.length; i++) {

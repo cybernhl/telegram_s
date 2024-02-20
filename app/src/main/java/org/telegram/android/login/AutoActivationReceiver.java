@@ -61,7 +61,7 @@ public class AutoActivationReceiver {
                     }
                 } catch (Exception e) {
                     Logger.t(TAG, e);
-                    CrashHandler.logHandledException(e);
+//                    CrashHandler.logHandledException(e);
                 }
             }
         };
@@ -77,7 +77,7 @@ public class AutoActivationReceiver {
             }
         } catch (Exception e) {
             Logger.t(TAG, e);
-            CrashHandler.logHandledException(e);
+//            CrashHandler.logHandledException(e);
         }
         return false;
     }
@@ -125,7 +125,7 @@ public class AutoActivationReceiver {
             this.checker.start();
         } catch (Exception e) {
             Logger.t(TAG, e);
-            CrashHandler.logHandledException(e);
+//            CrashHandler.logHandledException(e);
         }
     }
 
@@ -144,7 +144,7 @@ public class AutoActivationReceiver {
             }
         } catch (Exception e) {
             Logger.t(TAG, e);
-            CrashHandler.logHandledException(e);
+//            CrashHandler.logHandledException(e);
         } finally {
             if (cursor != null) {
                 cursor.close();

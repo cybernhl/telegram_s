@@ -17,7 +17,6 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.internal.app.ActionBarImpl;
 import com.actionbarsherlock.internal.app.ActionBarWrapper;
 import com.actionbarsherlock.view.MenuItem;
-import com.crashlytics.android.Crashlytics;
 import com.google.analytics.tracking.android.EasyTracker;
 import org.telegram.android.activity.ViewImageActivity;
 import org.telegram.android.activity.ViewImagesActivity;

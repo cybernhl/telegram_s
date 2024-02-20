@@ -1,0 +1,49 @@
+import org.gradle.util.internal.VersionNumber
+buildscript {
+    ext {
+        agp_gradle = '7.3.0'
+        android_gradle_plugin_version = agp_gradle
+        kotlin_version = "1.6.21"
+        // coroutine
+        coroutine_version = "1.6.4"
+        kotlin_coroutines_version = coroutine_version
+        kotlin_ktor_version = "1.6.2"//2.1.2
+        ktx_extensions_version = '2.2.0'
+    }
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+        google()
+        maven {
+            url = uri('https://maven.pkg.jetbrains.space/public/p/compose/dev')
+        }
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$agp_gradle"
+//        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        mavenCentral()
+        google()
+        maven {
+            url = uri('https://maven.pkg.jetbrains.space/public/p/compose/dev')
+        }
+        mavenLocal()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -4,3 +4,7 @@ project(':tl-core').projectDir = new File( 'libraries/tl-core' )
 project(':mtproto').projectDir = new File( 'libraries/mtproto' )
 project(':telegram-api').projectDir = new File( 'libraries/telegram-api' )
 project(':actors').projectDir = new File( 'libraries/actors' )
+
+
+include ':actionbarsherlock'
+project(":actionbarsherlock").projectDir = file("./ActionBarSherlock/actionbarsherlock")

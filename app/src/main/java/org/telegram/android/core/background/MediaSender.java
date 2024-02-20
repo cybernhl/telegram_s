@@ -647,7 +647,7 @@ public class MediaSender {
                     application.getDownloadManager().writeToGallery(uploadFileName, downloadKey + ".jpg");
                 }
             } catch (Exception e) {
-                CrashHandler.logHandledException(e);
+//                CrashHandler.logHandledException(e);
                 Logger.t(TAG, e);
             }
         }
@@ -704,7 +704,7 @@ public class MediaSender {
                 application.getDownloadManager().writeToGallery(srcFile, downloadKey + ".mp4");
             }
         } catch (Exception e) {
-            CrashHandler.logHandledException(e);
+//            CrashHandler.logHandledException(e);
             Logger.t(TAG, e);
         }
     }
@@ -719,7 +719,7 @@ public class MediaSender {
                     application.getDownloadManager().writeToGallery(srcFile, downloadKey + ".mp4");
                 }
             } catch (IOException e) {
-                CrashHandler.logHandledException(e);
+//                CrashHandler.logHandledException(e);
                 Logger.t(TAG, e);
             }
         }
@@ -905,7 +905,7 @@ public class MediaSender {
                 width = img.getWidth();
                 height = img.getHeight();
             } catch (Exception e) {
-                CrashHandler.logHandledException(e);
+//                CrashHandler.logHandledException(e);
                 throw e;
             }
         } else {
@@ -943,7 +943,7 @@ public class MediaSender {
                 width = sizes[0];
                 height = sizes[1];
             } catch (Exception e) {
-                CrashHandler.logHandledException(e);
+//                CrashHandler.logHandledException(e);
                 throw e;
             }
         }

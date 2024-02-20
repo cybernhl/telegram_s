@@ -41,7 +41,7 @@ public class ApiKernel {
             //            CryptoUtils.setAESImplementation(new NativeAES());
             PQSolver.setCurrentImplementation(new NativePQ());
         } catch (Throwable e) {
-            CrashHandler.logHandledException(e);
+//            CrashHandler.logHandledException(e);
         }
 
         api = new TelegramApi(kernel.getAuthKernel().getApiStorage(), new AppInfo(5, Build.MODEL, Build.VERSION.RELEASE, kernel.getTechKernel().getTechReflection().getAppVersion(),

@@ -305,9 +305,9 @@ public class ApplicationKernel {
             int uid = authKernel.getApiStorage().getObj().getUid();
             int dc = authKernel.getApiStorage().getPrimaryDc();
             byte[] key = substring(SHA1(authKernel.getApiStorage().getAuthKey(dc)), 12, 8);
-            CrashHandler.setUid(uid, dc, ToHex(key));
+//            CrashHandler.setUid(uid, dc, ToHex(key));
         } else {
-            CrashHandler.removeUid();
+//            CrashHandler.removeUid();
         }
     }
 

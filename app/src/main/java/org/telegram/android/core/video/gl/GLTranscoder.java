@@ -1,5 +1,6 @@
 package org.telegram.android.core.video.gl;
 
+import android.annotation.SuppressLint;
 import android.media.*;
 import android.util.Log;
 import org.telegram.android.core.video.VideoChunks;
@@ -12,27 +13,29 @@ import java.nio.ByteBuffer;
 
 /**
  * Created by ex3ndr on 17.02.14.
- */
+ @SuppressLint("NewApi") */
 public class GLTranscoder {
 
     private static final float MAX_SIZE = 640;
 
     private static final String TAG = "GLTranscoder";
 
+    @SuppressLint("NewApi")
     public static boolean transcode(String sourceFile, String destFile) throws IOException {
         long tStart = System.currentTimeMillis();
         long start = System.currentTimeMillis();
 
         MediaMetadataRetriever metaRetriever = new MediaMetadataRetriever();
         metaRetriever.setDataSource(sourceFile);
-        int height = Integer.parseInt(metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+        int height = Integer.parseInt(
+                metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
         int width = Integer.parseInt(metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
 
         float scale = Math.min(MAX_SIZE / height, MAX_SIZE / width);
         int destW = (int) (width * scale);
         int destH = (int) (height * scale);
 
-        MediaExtractor extractor = new MediaExtractor();
+       MediaExtractor extractor = new MediaExtractor();
         extractor.setDataSource(sourceFile);
         int trackIndex = selectTrack(extractor);
         if (trackIndex < 0) {
@@ -58,7 +61,8 @@ public class GLTranscoder {
     }
 
 
-    private static VideoChunks editVideo(VideoChunks inputData, int destW, int destH) {
+    @SuppressLint("NewApi")
+    private static VideoChunks editVideo(VideoChunks inputData, int destW, int destH) throws IOException {
         VideoChunks outputData = new VideoChunks();
         MediaCodec decoder = null;
         MediaCodec encoder = null;
@@ -130,6 +134,7 @@ public class GLTranscoder {
     }
 
 
+    @SuppressLint("NewApi")
     private static void editVideoData(VideoChunks inputData, MediaCodec decoder,
                                       OutputSurface outputSurface, InputSurface inputSurface, MediaCodec encoder,
                                       VideoChunks outputData) {
@@ -280,6 +285,7 @@ public class GLTranscoder {
 //        }
     }
 
+    @SuppressLint("NewApi")
     private static VideoChunks extractVideo(MediaExtractor extractor, int track) {
         VideoChunks dest = new VideoChunks();
         dest.setMediaFormat(extractor.getTrackFormat(track));
@@ -301,6 +307,7 @@ public class GLTranscoder {
      *
      * @return the track index, or -1 if no video track is found.
      */
+    @SuppressLint("NewApi")
     private static int selectTrack(MediaExtractor extractor) {
         // Select the first video track we find, ignore the rest.
         int numTracks = extractor.getTrackCount();

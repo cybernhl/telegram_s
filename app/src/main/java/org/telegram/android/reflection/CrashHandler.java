@@ -1,6 +1,6 @@
 package org.telegram.android.reflection;
 
-import com.crashlytics.android.Crashlytics;
+
 import org.telegram.android.TelegramApplication;
 import org.telegram.android.log.Logger;
 
@@ -13,7 +13,7 @@ import org.telegram.android.log.Logger;
 public class CrashHandler {
     public static void init(TelegramApplication application) {
 
-        Crashlytics.start(application);
+//        Crashlytics.start(application);
 
         // Flushing logs to disk
         final Thread.UncaughtExceptionHandler originalHandler = Thread.getDefaultUncaughtExceptionHandler();
@@ -31,19 +31,19 @@ public class CrashHandler {
         });
     }
 
-    public static void logHandledException(Throwable e) {
-        Crashlytics.logException(e);
-    }
-
-    public static void setUid(int uid, int dcId, String key) {
-        Crashlytics.setInt("dc_id", dcId);
-        Crashlytics.setString("auth_key_id", key);
-        Crashlytics.setUserIdentifier("" + uid);
-    }
-
-    public static void removeUid() {
-        Crashlytics.setInt("dc_id", 0);
-        Crashlytics.setString("auth_key_id", "");
-        Crashlytics.setUserIdentifier("" + 0);
-    }
+//    public static void logHandledException(Throwable e) {
+//        Crashlytics.logException(e);
+//    }
+//
+//    public static void setUid(int uid, int dcId, String key) {
+//        Crashlytics.setInt("dc_id", dcId);
+//        Crashlytics.setString("auth_key_id", key);
+//        Crashlytics.setUserIdentifier("" + uid);
+//    }
+//
+//    public static void removeUid() {
+//        Crashlytics.setInt("dc_id", 0);
+//        Crashlytics.setString("auth_key_id", "");
+//        Crashlytics.setUserIdentifier("" + 0);
+//    }
 }

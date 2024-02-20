@@ -109,7 +109,7 @@ public class UpdateProcessor {
                                     return;
                                 } catch (RpcException e) {
                                     Logger.t(TAG, e);
-                                    CrashHandler.logHandledException(e);
+//                                    CrashHandler.logHandledException(e);
                                 } catch (IOException e) {
                                     Logger.t(TAG, e);
                                 }
@@ -141,7 +141,7 @@ public class UpdateProcessor {
                                     return;
                                 } catch (RpcException e) {
                                     Logger.t(TAG, e);
-                                    CrashHandler.logHandledException(e);
+//                                    CrashHandler.logHandledException(e);
                                 } catch (IOException e) {
                                     Logger.t(TAG, e);
                                 }

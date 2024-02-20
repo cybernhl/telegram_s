@@ -10,3 +10,6 @@
 [submodule "libraries/actors"]
 	path = libraries/actors
 	url = https://ex3ndr@github.com/ex3ndr/telegram-actors.git
+[submodule "ActionBarSherlock"]
+	path = ActionBarSherlock
+	url = git@github.com:JakeWharton/ActionBarSherlock.git

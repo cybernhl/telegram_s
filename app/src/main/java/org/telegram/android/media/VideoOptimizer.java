@@ -67,7 +67,7 @@ public class VideoOptimizer {
                 width = sizes[0];
                 height = sizes[1];
             } catch (Exception e) {
-                CrashHandler.logHandledException(e);
+//                CrashHandler.logHandledException(e);
                 throw e;
             }
         }
